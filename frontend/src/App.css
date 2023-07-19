@@ -1,56 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Inder&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500&display=swap");
+
+#root {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+:root {
+  /* --primaryColor: #ac924d;
+  --secondaryColor: #c3b48a;
+  --darkGoldColor: #12110b;
+  --whiteGoldColor: #fffbef;
+  --redWineColor: #7b1e3d;
+
+  --grayBgColor: #222222;
+  --blackBgGradient: linear-gradient(141.47deg, #222222 3.84%, #12110b 93.65%);
+  --blackBgGradientSmooth: linear-gradient(
+    141.47deg,
+    rgba(34, 34, 34, 0.7) 3.84%,
+    rgba(18, 17, 11, 0.7) 93.65%
+  );
+
+  --smoothGoldColor: rgba(172, 146, 77, 0.3);
+  --smoothWhiteColor: rgba(255, 251, 239, 0.3);
+
+  --shadow: 0px 5px 6px 2px rgba(18, 17, 11, 0.3);
+  --bgBlur: blur(8px);
+
+  --fontFamilyText: "Poppins", sans-serif;
+  --fontFamilyTitle: "Kaisei Tokumin", serif;
+
+  --fontSizeH1: clamp(3rem, 7vw + 1rem, 5rem);
+  --fontSizeH2: clamp(1.8rem, 4vw + 1rem, 3rem);
+  --fontSizeText: clamp(16px, 2vw + 0.5rem, 1.5rem);
+
+  --marginPageContent: clamp(1rem, 10vw + 2rem, 12rem);
+  --paddingTablet: clamp(1rem, 4vw + 1rem, 7rem); */
+}
+
+body {
+  min-height: 100dvh;
 }
 
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-ms-reveal {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--whiteGoldColor);
 }
