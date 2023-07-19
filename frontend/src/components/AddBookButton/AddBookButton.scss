@@ -1,0 +1,28 @@
+.section-add-button {
+  content-visibility: visible;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  .add-button {
+    position: absolute;
+    bottom: 1rem;
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    width: 60px;
+    height: 60px;
+    border: none;
+    .fi-rr-books-medical {
+      color: white;
+      font-size: 30px;
+      line-height: 0.5em;
+      vertical-align: -0.15em;
+      display: inline-flex;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .section-add-button {
+    content-visibility: hidden;
+  }
+}

@@ -9,8 +9,9 @@
     height: 30px;
     padding: 0 5px;
     border-radius: 5px;
-    background-color: var(--second-grey-60);
+    background-color: var(--input-color);
     color: white;
+    border: none;
   }
 
   input:autofill {
@@ -19,11 +20,11 @@
 
   label {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   input {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.5rem;
   }
   .connection-input {
@@ -60,7 +61,6 @@
     border-radius: 30px;
     background-color: var(--secondary-color);
     color: white;
-    font-weight: bold;
     font-size: 1.4rem;
     text-shadow: 1px 1px 1px var(--main-color);
     width: 80%;
@@ -137,6 +137,10 @@
       .password-input-and-show {
         width: 100%;
       }
+    }
+    .password-label,
+    .username-label {
+      font-size: 1.3rem;
     }
   }
 }

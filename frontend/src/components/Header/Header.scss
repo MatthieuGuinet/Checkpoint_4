@@ -6,20 +6,51 @@
   padding: 0.5rem 0.8rem;
   gap: 1rem;
   background-color: var(--main-color-nuanced);
-  .logo-home {
-    height: 80%;
-  }
+  user-select: none;
+  cursor: default;
   .title-home {
     font-size: 1.5rem;
-    color: white;
-    text-shadow: 1px 1px 4px var(--secondary-color);
+    color: var(--input-color);
+    font-weight: bold;
   }
+  .logo-title {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    .logo-home {
+      height: 80%;
+    }
+  }
+  .username-logout {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    .title-home {
+      content-visibility: hidden;
+    }
+  }
+
   .deconnection-button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
     .fi-rr-power {
       font-size: 1.8rem;
       color: var(--secondary-color);
+      line-height: 0.5em;
+      vertical-align: -0.15em;
+      display: inline-flex;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .header {
+    .username-logout {
+      .title-home {
+        content-visibility: visible;
+      }
     }
   }
 }

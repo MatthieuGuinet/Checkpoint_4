@@ -1,0 +1,33 @@
+.modal-add-book {
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+  top: 10vh;
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .close-modal {
+    width: 100%;
+    margin: 0 auto;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    .close-button {
+      border-radius: 30px;
+      background-color: var(--secondary-color);
+      width: 60px;
+      height: 60px;
+      border: none;
+      .fi-rr-cross {
+        color: white;
+        font-size: 30px;
+        line-height: 0.5em;
+        vertical-align: -0.15em;
+        display: inline-flex;
+      }
+    }
+  }
+}
