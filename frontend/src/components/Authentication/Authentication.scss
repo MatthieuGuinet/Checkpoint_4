@@ -1,0 +1,142 @@
+.connection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+
+  input {
+    width: 100%;
+    height: 30px;
+    padding: 0 5px;
+    border-radius: 5px;
+    background-color: var(--second-grey-60);
+    color: white;
+  }
+
+  input:autofill {
+    background: var(--second-grey-60);
+  }
+
+  label {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  input {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+  .connection-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+  .password-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .password-input-and-show {
+      position: relative;
+      .hide-or-show-button {
+        position: absolute;
+        right: 0;
+        top: 4px;
+        background-color: transparent;
+        border: none;
+      }
+      #pw-icon-show-hide {
+        font-size: 20px;
+        color: white;
+      }
+    }
+  }
+  .connection-button {
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 1px var(--main-color);
+    width: 80%;
+    max-width: 250px;
+    margin: 1rem auto 0 auto;
+    border: var(--main-color) solid 1px;
+  }
+}
+
+.auth-modal {
+  .bg-fail-auth-modal {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color-nuanced-opacified);
+    backdrop-filter: blur(4px);
+  }
+
+  .fail-auth-modal {
+    position: absolute;
+    z-index: 3;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border: var(--secondary-color) 1px solid;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    background-color: var(--main-color);
+    backdrop-filter: blur(5px);
+
+    .exit-modal-fail-button {
+      width: 30px;
+      height: 30px;
+      align-self: flex-end;
+      margin: 5px 10px 0 0;
+      background-color: transparent;
+      border: none;
+    }
+
+    .fi-rr-cross-small {
+      font-size: 30px;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+
+    p {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      text-align: center;
+      color: white;
+      justify-self: center;
+      padding: 0 10px;
+      line-height: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .connection {
+    .input-username,
+    .password-input-and-show {
+      max-width: 300px;
+    }
+    .connection-input,
+    .password-section {
+      margin: 0 auto;
+      width: 100%;
+      align-items: center;
+      .password-input-and-show {
+        width: 100%;
+      }
+    }
+  }
+}
