@@ -1,11 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./MyBooks.scss";
 import axios from "axios";
 import AuthenticationContext from "../../contexts/AuthenticationContext";
 
 export default function Header() {
-  const { userToken, userInfo } = useContext(AuthenticationContext);
-  const [userBooks, setUserBooks] = useState([]);
+  const { userToken, userInfo, userBooks, setUserBooks } = useContext(
+    AuthenticationContext
+  );
   const { id } = userInfo;
   useEffect(() => {
     axios
@@ -47,30 +48,65 @@ export default function Header() {
       });
   };
 
+  const handleDeleteBook = (bookId) => {
+    axios
+      .delete(
+        `${import.meta.env.VITE_BACKEND_URL}/users/${id}/books/${bookId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      )
+      .then(() => {
+        const updatedUserBooks = userBooks.filter((book) => book.id !== bookId);
+        setUserBooks(updatedUserBooks);
+      })
+      .catch((error) => {
+        console.error(error);
+        setUserBooks(userBooks);
+      });
+  };
+
   return userBooks ? (
     <div className="my-books">
       <h2 className="title-personal-library">My personal library</h2>
-      <div className="all-my-books">
-        {userBooks.map((book) => (
-          <>
-            <div key={book.id} className="book">
-              <p className="book-title">{book.book_title}</p>
-              <p className="book-author">{book.book_author}</p>
-              <div className="is-read">
-                <p>Read :</p>
-                <input
-                  className="book-is-read"
-                  type="checkbox"
-                  value={book.is_read}
-                  checked={book.is_read}
-                  onChange={(event) => handleCheckboxChange(book.id, event)}
-                />
+      {userBooks.length ? (
+        <div className="all-my-books">
+          {userBooks.map((book) => (
+            <>
+              <div key={book.id} className="book">
+                <p className="book-title">{book.book_title}</p>
+                <p className="book-author">{book.book_author}</p>
+                <div className="read-delete">
+                  <div className="is-read">
+                    <p>Read :</p>
+                    <input
+                      className="book-is-read"
+                      type="checkbox"
+                      value={book.is_read}
+                      checked={book.is_read}
+                      onChange={(event) => handleCheckboxChange(book.id, event)}
+                    />
+                  </div>
+                  <div className="delete-book">
+                    <button
+                      type="button"
+                      className="delete-book-button"
+                      onClick={() => handleDeleteBook(book.id)}
+                    >
+                      <i className="fi fi-rr-trash" />
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-          </>
-        ))}
-      </div>
+              <hr />
+            </>
+          ))}
+        </div>
+      ) : (
+        <p>No book added yet</p>
+      )}
     </div>
   ) : (
     <p>Loading...</p>

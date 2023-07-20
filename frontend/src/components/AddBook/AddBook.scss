@@ -1,0 +1,120 @@
+.section-add-book {
+  position: relative;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+
+  h2,
+  .form-search-book,
+  .searched-book-container .searched-books {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-search-book {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .search-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .title-input-label,
+      .author-input-label {
+        display: flex;
+        gap: 2rem;
+        font-size: 1.2rem;
+      }
+
+      .title-label,
+      .author-label {
+        width: 15%;
+      }
+
+      .title-input,
+      .author-input {
+        width: 75%;
+        min-width: 165px;
+        align-self: flex-end;
+        background-color: var(--input-color);
+        padding: 2px 5px;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        border: none;
+      }
+    }
+
+    .button-modification-validation {
+      background-color: var(--secondary-color);
+      color: white;
+      border: var(--main-color) solid 1px;
+      width: 30%;
+      min-width: 100px;
+      margin: 0 auto;
+      height: 30px;
+      border-radius: 15px;
+    }
+  }
+  .searched-book-container {
+    overflow: auto;
+    height: 70%;
+    margin-bottom: 0.5rem;
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--secondary-color);
+      border-radius: 5px;
+      visibility: hidden;
+    }
+    &:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+
+    .searched-books {
+      display: flex;
+      flex-direction: column;
+
+      .separation-book {
+        display: flex;
+        flex-direction: column;
+
+        .book-searched {
+          display: flex;
+          justify-content: space-between;
+          gap: 2rem;
+          align-items: center;
+
+          .add-button-book {
+            background-color: transparent;
+            border: none;
+
+            .fi-rr-add {
+              color: white;
+              font-size: 25px;
+              line-height: 0.5em;
+              vertical-align: -0.15em;
+              display: inline-flex;
+            }
+          }
+        }
+
+        hr {
+          width: 90%;
+          border: 1px solid var(--secondary-color);
+        }
+      }
+      .separation-book:last-child hr {
+        display: none;
+      }
+    }
+  }
+}

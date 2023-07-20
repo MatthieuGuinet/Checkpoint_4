@@ -15,13 +15,14 @@
     flex-direction: column;
     gap: 0.5rem;
     margin-top: 1rem;
+    margin-bottom: 76px;
     overflow: auto;
     height: 100%;
     &::-webkit-scrollbar {
-      width: 0.5rem;
+      width: 0.25rem;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(100, 100, 100);
+      background-color: var(--secondary-color);
       border-radius: 5px;
       visibility: hidden;
     }
@@ -35,15 +36,37 @@
       .book-title,
       .book-author {
         width: 30%;
+        word-break: break-all;
+        padding: 2px;
       }
-      .is-read {
+
+      .read-delete {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        .book-is-read {
-          width: 20px;
-          height: 20px;
-          accent-color: var(--secondary-color);
+        gap: 0.5rem;
+        .is-read {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          .book-is-read {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--secondary-color);
+          }
+        }
+        .delete-book {
+          .delete-book-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+          }
+          .fi-rr-trash {
+            color: white;
+            font-size: 1rem;
+            line-height: 0.5em;
+            vertical-align: -0.15em;
+            display: inline-flex;
+          }
         }
       }
     }
