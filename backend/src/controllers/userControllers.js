@@ -17,8 +17,12 @@ const Adduser = (req, res) => {
       }
     })
     .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
+      if (err.errno === 1062) {
+        res.sendStatus(409);
+      } else {
+        console.error(err);
+        res.sendStatus(500);
+      }
     });
 };
 

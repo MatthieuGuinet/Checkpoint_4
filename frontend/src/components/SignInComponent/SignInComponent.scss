@@ -1,0 +1,22 @@
+.connection {
+  .wrong-password-char {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+  }
+
+  .wrong-username {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .signIn-button:hover {
+    background-color: var(--secondary-color-nuanced);
+  }
+}

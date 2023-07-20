@@ -15,27 +15,43 @@ function AddBook({ desktop }) {
   const [author, setAuthor] = useState("");
   const [result, setResult] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [noResult, setNoResult] = useState(false);
+  const [searchWarning, setSearchWarning] = useState(false);
 
   const handleSearchBook = (event) => {
+    setSearchWarning(false);
     setIsLoading(true);
+    setNoResult(false);
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
     const dataFromForm = Object.fromEntries(formData.entries());
     const query = `&title=${dataFromForm.title}&author=${dataFromForm.author}`;
-    axios
-      .get(
-        `${
-          import.meta.env.VITE_BACKEND_URL
-        }/books?sort=new&language=eng${query}`
-      )
-      .then((response) => {
-        setResult(response.data.docs);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (dataFromForm.title && dataFromForm.author) {
+      setSearchWarning(false);
+      axios
+        .get(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/books?sort=new&language=eng${query}`
+        )
+        .then((response) => {
+          if (response.data.docs.length) {
+            setResult(response.data.docs);
+            setIsLoading(false);
+            setNoResult(false);
+          } else {
+            setNoResult(true);
+            setIsLoading(false);
+            setResult([]);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      setSearchWarning(true);
+    }
   };
 
   const handleAddBook = (book) => {
@@ -99,6 +115,9 @@ function AddBook({ desktop }) {
               onChange={(e) => setAuthor(e.target.value)}
             />
           </div>
+          {searchWarning && (
+            <p className="warning-input">Both inputs must be completed</p>
+          )}
         </div>
         <button type="submit" className="button-modification-validation">
           <p>Search</p>
@@ -123,9 +142,16 @@ function AddBook({ desktop }) {
               </div>
             ))
           ) : (
-            <p className="loading-text">Loading...</p>
+            <p
+              className={
+                !searchWarning ? "loading-text" : "loading-text-hidden"
+              }
+            >
+              Loading...
+            </p>
           )}
         </div>
+        {noResult && <p className="no-result">No result, try something else</p>}
       </div>
     </div>
   );

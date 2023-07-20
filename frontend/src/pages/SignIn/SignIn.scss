@@ -1,25 +1,33 @@
-.global-authentication-page {
+.global-signIn-page {
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
-  .authentication {
+  .return-log {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    display: block;
+    left: 2rem;
+    top: 2rem;
+    margin: 0;
+    .fi-rr-arrow-circle-left {
+      color: white;
+      font-size: 40px;
+    }
+  }
+  .signIn {
     padding-bottom: 2rem;
-    .authentication-container {
+    .signIn-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      .logo-auth {
+      .logo-signIn {
         width: 30%;
         max-width: 350px;
         margin: 2rem 1rem 1rem 1rem;
       }
-    }
-    .sign-in-link {
-      color: white;
-      text-decoration: underline;
-      text-shadow: 2px 2px 7px var(--main-color);
     }
   }
 
@@ -39,24 +47,22 @@
 }
 
 @media screen and (min-width: 480px) {
-  .global-authentication-page {
+  .global-signIn-page {
     flex-direction: row;
     width: 100%;
-    .authentication {
+    .return-log {
+      .fi-rr-arrow-circle-left {
+        cursor: pointer;
+        &:hover {
+          color: var(--secondary-color);
+        }
+      }
+    }
+    .signIn {
       width: 47%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .authentication-container {
-        .connection {
-          .connection-button {
-            cursor: pointer;
-            &:hover {
-              background-color: var(--secondary-color-nuanced);
-            }
-          }
-        }
-      }
     }
     .myLibrary-description {
       width: 53%;
@@ -78,7 +84,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .global-authentication-page {
+  .global-signIn-page {
     .myLibrary-description {
       padding-left: 1rem;
     }

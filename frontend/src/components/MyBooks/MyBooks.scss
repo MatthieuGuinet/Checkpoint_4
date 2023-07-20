@@ -84,5 +84,27 @@
   .my-books {
     width: 50vw;
     border-right: 2px dashed var(--secondary-color);
+    .all-my-books {
+      .book {
+        .read-delete {
+          .is-read {
+            .book-is-read {
+              cursor: pointer;
+            }
+          }
+          .delete-book {
+            .delete-book-button {
+              cursor: pointer;
+              .fi-rr-trash {
+                font-size: 25px;
+              }
+              .fi-rr-trash:hover {
+                color: var(--secondary-color);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

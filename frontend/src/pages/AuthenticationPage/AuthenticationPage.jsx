@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./AuthenticationPage.scss";
 import Authentication from "../../components/Authentication/Authentication";
 import logo from "../../assets/logo.png";
@@ -10,6 +11,9 @@ function AuthenticationPage() {
         <div className="authentication-container">
           <img className="logo-auth" src={logo} alt="logo myLibrary" />
           <Authentication />
+          <Link to="/signin" className="sign-in-link">
+            Sign in here
+          </Link>
         </div>
       </div>
       <div className="myLibrary-description">

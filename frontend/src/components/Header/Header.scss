@@ -37,7 +37,7 @@
     cursor: pointer;
     .fi-rr-power {
       font-size: 1.8rem;
-      color: var(--secondary-color);
+      color: var(--input-color);
       line-height: 0.5em;
       vertical-align: -0.15em;
       display: inline-flex;
@@ -50,6 +50,11 @@
     .username-logout {
       .title-home {
         content-visibility: visible;
+      }
+    }
+    .deconnection-button {
+      .fi-rr-power:hover {
+        color: var(--secondary-color);
       }
     }
   }
