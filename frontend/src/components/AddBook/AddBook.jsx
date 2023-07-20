@@ -2,9 +2,10 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import "./AddBook.scss";
+import PropTypes from "prop-types";
 import AuthenticationContext from "../../contexts/AuthenticationContext";
 
-export default function AddBook() {
+function AddBook({ desktop }) {
   const { userToken, userInfo, userBooks, setUserBooks } = useContext(
     AuthenticationContext
   );
@@ -70,7 +71,7 @@ export default function AddBook() {
   };
 
   return (
-    <div className="section-add-book">
+    <div className={`section-add-book ${{ desktop } && "desktop"}`}>
       <h2>Add a book</h2>
       <form onSubmit={handleSearchBook} className="form-search-book">
         <div className="search-inputs">
@@ -122,10 +123,16 @@ export default function AddBook() {
               </div>
             ))
           ) : (
-            <p>Loading...</p>
+            <p className="loading-text">Loading...</p>
           )}
         </div>
       </div>
     </div>
   );
 }
+
+AddBook.propTypes = {
+  desktop: PropTypes.bool.isRequired,
+};
+
+export default AddBook;

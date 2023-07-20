@@ -115,6 +115,47 @@
       .separation-book:last-child hr {
         display: none;
       }
+
+      .loading-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.desktop {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .desktop-position {
+    display: flex;
+    width: 100vw;
+    .my-books {
+      .all-my-books {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  .desktop {
+    display: block;
+    width: 50vw;
+    .searched-book-container {
+      overflow-y: auto;
+      height: 64.5vh;
+      &::-webkit-scrollbar {
+        width: 0.25rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+        visibility: hidden;
+      }
+      &:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
     }
   }
 }
