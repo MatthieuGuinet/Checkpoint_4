@@ -25,6 +25,7 @@ export function AuthenticationProvider({ children }) {
 
   const logoutHandler = () => {
     Cookies.remove("userToken");
+    setUserInfo("");
   };
 
   const AuthValue = useMemo(

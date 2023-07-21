@@ -18,10 +18,10 @@ export default function Header() {
       .then((response) => {
         setUserBooks(response.data);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        setUserBooks([]);
       });
-  }, []);
+  }, [userToken, userInfo]);
 
   const handleCheckboxChange = (bookId, event) => {
     const isChecked = event.target.checked;

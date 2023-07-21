@@ -6,7 +6,7 @@ import AddBook from "../AddBook/AddBook";
 function ModalAddBook({ closeModal }) {
   return (
     <div className="modal-add-book">
-      <AddBook />
+      <AddBook desktop={false} />
       <div className="close-modal">
         <button
           type="button"

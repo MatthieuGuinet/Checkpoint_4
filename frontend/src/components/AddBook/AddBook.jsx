@@ -87,7 +87,7 @@ function AddBook({ desktop }) {
   };
 
   return (
-    <div className={`section-add-book ${{ desktop } && "desktop"}`}>
+    <div className={desktop ? `section-add-book desktop` : "section-add-book"}>
       <h2>Add a book</h2>
       <form onSubmit={handleSearchBook} className="form-search-book">
         <div className="search-inputs">
@@ -158,7 +158,11 @@ function AddBook({ desktop }) {
 }
 
 AddBook.propTypes = {
-  desktop: PropTypes.bool.isRequired,
+  desktop: PropTypes.bool,
+};
+
+AddBook.defaultProps = {
+  desktop: false,
 };
 
 export default AddBook;
